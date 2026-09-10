@@ -8,8 +8,7 @@
     --tarjeta: #171222;
 
     --texto: #F4F0FF;
-    --texto-secundario: #B7ACC8;
-
+    --texto-secundario: #D0C5DB;
     --acento: #B86CFF;
     --acento-fuerte: #8A2BE2;
 
@@ -38,7 +37,7 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    padding: 20px 30px;
+    padding: 16px 30px;
 
     background-color: var(--fondo-secundario);
     border-bottom: 1px solid var(--borde);
@@ -76,13 +75,19 @@ nav a:hover {
 
     gap: 70px;
 
-    padding: 100px 80px;
+    padding: 80px 80px;
 
-    background: linear-gradient(
-        120deg,
-        var(--fondo-secundario),
-        #211234
-    );
+    background: 
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(184, 108, 255, 0.12),
+            transparent 45%
+        ),
+        linear-gradient(
+            120deg,
+            var(--fondo-secundario),
+            #211234
+        );
 }
 
 .hero-texto {
@@ -92,7 +97,7 @@ nav a:hover {
 
 .hero-imagen {
     width: 58%;
-    max-width: 850px;
+    max-width: 780px;
 }
 
 .hero-imagen img {
@@ -101,29 +106,51 @@ nav a:hover {
 
     border: 1px solid var(--borde);
     border-radius: 15px;
+
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.40),
+        0 0 25px rgba(184, 108, 255, 0.16)
+    ;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-imagen img:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 
+        0 25px 45px rgba(0, 0, 0, 0.45),
+        0 0 30px rgba(184, 108, 255, 0.16)
+    ;
 }
 
 .hero-texto h1 {
     font-size: 64px;
+    line-height: 1.05;
+
     margin-top: 0;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 
     color: var(--texto);
+
+    letter-spacing: -1px;
 }
 
 .hero-texto p {
-    color: #EDE7F6;
+    color: var(--texto-secundario);
 
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.7;
 
-    max-width: 500px;
+    max-width: 520px;
     margin-bottom: 30px;
+
+    margin-top: 0;
 }
 
 .btn {
     display: inline-block;
-    padding: 14px 30px;
+    padding: 15px 32px;
 
     background-color: var(--acento);
     color: #FFFFFF;
@@ -131,17 +158,22 @@ nav a:hover {
     text-decoration: none;
     font-weight: bold;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
-    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(184, 108, 255, 0.18);
+
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 
-    box-shadow: 0 8px 20px rgba(184, 108, 255, 0.35);
+    background-color: var(--acento-fuerte);
 
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.30),
+        0 0 20px rgba(184, 108, 255, 0.30)
+    ;
 }
 
 .btn:active {
@@ -149,13 +181,16 @@ nav a:hover {
 }
 
 .caracteristicas {
-    padding: 50px 25px 35px;
+    padding: 55px 25px 40px;
     text-align: center;
+
+    background-color: var(--fondo-secundario);
 }
 
 .caracteristicas h2 {
-    font-size: 35px;
+    font-size: 42px;
     margin-bottom: 40px;
+    letter-spacing: 0.5px;
 }
 
 .caracteristicas-contenedor {
@@ -164,23 +199,23 @@ nav a:hover {
 
     display: flex;
     justify-content: center;
-    gap: 30px;  
+    gap: 25px;  
 }
 
 .caracteristica {
     width: 350px;
-    padding: 25px;
+    padding: 28px 25px;
 
     background-color: var(--tarjeta);
 
-    border: 1px solid var(--borde);
+    border: 1px solid #49345F;
     border-radius: 12px;
 
     transition: 0.3s;
 }
 
 .caracteristica:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
 
     border-color: var(--acento);
 
@@ -193,12 +228,14 @@ nav a:hover {
     color: var(--acento);
 
     margin-top: 0;
+    margin-bottom: 14px;
 }
 
 .caracteristica p {
     color: var(--texto-secundario);
 
     line-height: 1.6;
+    margin: 0;
 }
 
 .capturas {
@@ -208,8 +245,8 @@ nav a:hover {
 
 .capturas h2 {
     text-align: center;
-    font-size: 56px;
-    margin-bottom: 50px;
+    font-size: 42px;
+    margin-bottom: 35px;
     color: var(--texto);
 }
 
@@ -229,8 +266,10 @@ nav a:hover {
 
     background-color: var(--tarjeta);
 
-    border: 1px solid var(--borde);
+    border: 1px solid #49345F;
     border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
 
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -244,6 +283,8 @@ nav a:hover {
     
     width: 100%;
     height: auto;
+
+    transition: transform 0.3s ease;
 }
 
 .captura:hover {
@@ -263,9 +304,9 @@ nav a:hover {
 }
 
 .requisitos h2 {
-    font-size: 38px;
+    font-size: 42px;
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .requisitos-contenedor {
@@ -276,12 +317,12 @@ nav a:hover {
 
 .requisito {
     width: 360px;
-    padding: 22px 28px;
+    padding: 25px 28px;
 
     background-color: var(--tarjeta);
 
-    border: 1px solid var(--borde);
-    border-radius: 15px;
+    border: 1px solid #49345F;
+    border-radius: 12px;
 
     text-align: left;
 
@@ -294,7 +335,7 @@ nav a:hover {
     border-color: var(--acento);
 
     box-shadow: 
-        0 10px 25px black,
+        0 10px 25px rgba(0, 0, 0, 0.45),
         0 0 18px rgba(184, 108, 255, 0.18)
     ;
 }
@@ -319,11 +360,11 @@ nav a:hover {
 .requisito li {
     color: var(--texto);
     margin: 8px 0;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .descarga {
-    padding: 90px 40px;
+    padding: 75px 40px;
 
     text-align: center;
 
@@ -355,7 +396,7 @@ nav a:hover {
 }
 
 footer {
-    padding: 35px 40px;
+    padding: 40px 40px;
 
     background-color: var(--fondo-secundario);
     border-top: 1px solid var(--borde);
@@ -365,16 +406,19 @@ footer {
 
 footer h2 {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
 
     color: var(--acento);
     letter-spacing: 2px;
+
+    text-shadow: 0 0 12px rgba(184, 108, 255, 0.20);
 }
 
 footer p {
     margin: 0;
-
     color: var(--texto-secundario);
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 /*======================================================== TABLETS Y CELULARES ================================================*/
@@ -433,7 +477,7 @@ footer p {
     }
 
     .hero-texto p {
-        color: #D0C5DB;
+        color: var(--texto-secundario);
         font-weight: 400;
     }
 
