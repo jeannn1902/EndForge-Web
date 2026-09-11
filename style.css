@@ -75,7 +75,7 @@ nav a:hover {
 
     gap: 70px;
 
-    padding: 80px 80px;
+    padding: 95px 80px;
 
     background: 
         radial-gradient(
@@ -91,12 +91,12 @@ nav a:hover {
 }
 
 .hero-texto {
-    width: 42%;
+    width: 45%;
     max-width: 560px;
 }
 
 .hero-imagen {
-    width: 58%;
+    width: 55%;
     max-width: 780px;
 }
 
@@ -124,6 +124,23 @@ nav a:hover {
     ;
 }
 
+.hero-etiqueta {
+    display: inline-block;
+
+    margin-bottom: 15px;
+    padding: 7px 14px;
+
+    background-color: rgba(184, 108, 255, 0.10);
+    color: var(--acento);
+
+    border: 1px solid var(--borde);
+    border-radius: 999px;
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
 .hero-texto h1 {
     font-size: 64px;
     line-height: 1.05;
@@ -136,11 +153,23 @@ nav a:hover {
     letter-spacing: -1px;
 }
 
+.hero-texto h2 {
+    font-size: 30px;
+    line-height: 1.3;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    color: var(--acento);
+
+    max-width: 520px;
+}
+
 .hero-texto p {
     color: var(--texto-secundario);
 
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 18px;
+    line-height: 1.65;
 
     max-width: 520px;
     margin-bottom: 30px;
@@ -178,6 +207,23 @@ nav a:hover {
 
 .btn:active {
     transform: translateY(0);
+}
+
+.btn-secundario {
+    background-color: var(--tarjeta);
+    color: var(--texto);
+
+    border: 1px solid var(--borde);
+    box-shadow: none;
+}
+
+.btn-secundario:hover {
+    background-color: var(--tarjeta);
+    color: var(--texto);
+
+    border-color: var(--acento);
+
+    box-shadow: 0 0 18px rgba(184, 108, 255, 0.15);
 }
 
 .caracteristicas {
