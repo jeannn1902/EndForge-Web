@@ -4,7 +4,7 @@
 
 :root {
     --fondo-principal: #08070D;
-    --fondo-secundario: #100D18;
+    --fondo-secundario: #0d0a14;
     --tarjeta: #171222;
 
     --texto: #F4F0FF;
@@ -16,17 +16,15 @@
 }
 
 /*============================================================== GENERAL ==========================================================*/
-
 body {
-    /* EndForge - prueba de despliegue */
-
     margin: 0;
-
+    padding: 0;
     background-color: var(--fondo-principal);
     color: var(--texto);
-
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden; /* Evita desbordamiento por las luces */
 }
+
 
 header {
     position: sticky;
@@ -69,25 +67,34 @@ nav a:hover {
 }
 
 .hero {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     gap: 70px;
-
     padding: 95px 80px;
 
-    background: 
-        radial-gradient(
-            circle at 75% 50%,
-            rgba(184, 108, 255, 0.12),
-            transparent 45%
-        ),
-        linear-gradient(
-            120deg,
-            var(--fondo-secundario),
-            #211234
-        );
+    background: transparent !important;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    width: 450px;
+    height: 450px;
+    background: rgba(184, 108, 255, 0.15);
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-texto, .hero-imagen {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-texto {
@@ -165,6 +172,17 @@ nav a:hover {
     max-width: 520px;
 }
 
+.hero-texto .btn + .btn {
+    margin-left: 10px;
+}
+
+.hero-texto .btn:first-of-type {
+    box-shadow:
+        0 5px 15px rgba(184, 108, 255, 0.25),
+        0 0 20px rgba(184, 108, 255, 0.10)
+    ;
+}
+
 .hero-texto p {
     color: var(--texto-secundario);
 
@@ -226,16 +244,72 @@ nav a:hover {
     box-shadow: 0 0 18px rgba(184, 108, 255, 0.15);
 }
 
-.caracteristicas {
-    padding: 55px 25px 40px;
-    text-align: center;
+.descarga .btn-descarga {
+    background-color: #8B3DFF;
+    background-image: linear-gradient(135deg, #9D52FF, #7A22FF);
+    color: #FFFFFF;
 
-    background-color: var(--fondo-secundario);
+    border: 1px solid #B885FF;
+    border-radius: 12px;
+    padding: 16px 36px;
+    font-size: 17px;
+
+    box-shadow: 0 4px 20px rgba(139, 61, 255, 0.45);
+}
+
+.descarga .btn-descarga:hover {
+    background-color: #9D52FF;
+    background-image: linear-gradient(135deg, #B06BFF, #8B3DFF);
+
+    border-color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(157, 82, 255, 0.65);
+    transform: translateY(-2px);
+}
+
+.descarga-accion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.descarga-info {
+    font-size: 14px;
+    color: var(--texto-secundario);
+    opacity: 0.8;
+}
+
+.caracteristicas {
+    position: relative;
+    padding: 50px 25px 60px; /* Reducimos el padding superior de 75px a 50px */
+    text-align: center;
+    background: transparent !important;
+}
+
+.caracteristicas::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 350px;
+    background: rgba(138, 43, 226, 0.12);
+    border-radius: 50%;
+    filter: blur(150px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.caracteristicas h2, .caracteristicas-contenedor {
+    position: relative;
+    z-index: 1;
 }
 
 .caracteristicas h2 {
     font-size: 42px;
-    margin-bottom: 40px;
+    margin-top: 10px; /* Reducimos el espacio superior del título */
+    margin-bottom: 35px;
     letter-spacing: 0.5px;
 }
 
@@ -270,6 +344,16 @@ nav a:hover {
         0 0 18px rgba(184, 108, 255, 0.20);
 }
 
+.caracteristica-icono {
+    font-size: 36px;
+    margin-bottom: 15px;
+    display: inline-block;
+    padding: 12px;
+    background: rgba(184, 108, 255, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(184, 108, 255, 0.2);
+}
+
 .caracteristica h3 {
     color: var(--acento);
 
@@ -279,20 +363,40 @@ nav a:hover {
 
 .caracteristica p {
     color: var(--texto-secundario);
-
     line-height: 1.6;
     margin: 0;
+    font-size: 15px;
 }
 
 .capturas {
-    padding: 35px 70px 50px;
-    background-color: var(--fondo-principal);
+    padding: 50px 70px 70px; /* Reducimos padding superior de 60px a 50px */
+    background: transparent !important;
+    background-image: none !important;
+}
+
+.capturas, .requisitos {
+    position: relative;
+}
+
+.capturas::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: -2%;
+    width: 500px;
+    height: 500px;
+    background: rgba(184, 108, 255, 0.22); /* Subimos opacidad de 0.09 a 0.22 */
+    border-radius: 50%;
+    filter: blur(90px); /* Menos desenfoque para que resalte más */
+    pointer-events: none;
+    z-index: 0;
 }
 
 .capturas h2 {
     text-align: center;
     font-size: 42px;
-    margin-bottom: 35px;
+    margin-top: 10px; /* Controlamos el margen superior */
+    margin-bottom: 30px;
     color: var(--texto);
 }
 
@@ -306,18 +410,24 @@ nav a:hover {
 }
 
 .captura {
+    margin: 0;
     width: 100%;
-
     overflow: hidden;
-
     background-color: var(--tarjeta);
-
     border: 1px solid #49345F;
     border-radius: 12px;
-
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
-
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.captura figcaption {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--texto-secundario);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.20);
+    border-top: 1px solid rgba(57, 40, 77, 0.5);
 }
 
 .captura:first-child {
@@ -326,53 +436,76 @@ nav a:hover {
 
 .captura img {
     display: block;
-    
     width: 100%;
     height: auto;
-
     transition: transform 0.3s ease;
 }
 
 .captura:hover {
     transform: translateY(-3px);
     border-color: var(--acento);
-
     box-shadow:
         0 10px 25px rgba(0, 0, 0, 0.45),
         0 0 18px rgba(184, 108, 255, 0.18)
     ;
 }
 
+.captura:hover img {
+    transform: scale(1.02);
+}
+
 .requisitos {
-    padding: 35px 25px 50px;
+    padding: 50px 25px 70px; /* Reducimos padding superior de 60px a 50px */
     text-align: center;
-    background-color: var(--fondo-principal);
+    background: transparent !important;
+    background-image: none !important;
+    background-size: 32px 32px;
+}
+
+.requisitos::before {
+    content: "";
+    position: absolute;
+    top: 15%;
+    right: -2%;
+    width: 500px;
+    height: 500px;
+    background: rgba(138, 43, 226, 0.25); /* Subimos opacidad a 0.25 */
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.capturas-contenedor, .capturas h2,
+.requisitos-contenedor, .requisitos h2 {
+    position: relative;
+    z-index: 1;
 }
 
 .requisitos h2 {
     font-size: 42px;
-    margin-top: 0;
-    margin-bottom: 35px;
+    margin-top: 10px; /* Forzamos un margen superior pequeño */
+    margin-bottom: 30px;
 }
 
 .requisitos-contenedor {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .requisito {
-    width: 360px;
-    padding: 25px 28px;
+    flex: 1;    
+    padding: 35px 40px;
 
     background-color: var(--tarjeta);
-
     border: 1px solid #49345F;
     border-radius: 12px;
-
     text-align: left;
 
-    transition: 0.3s;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .requisito:hover {
@@ -384,6 +517,30 @@ nav a:hover {
         0 10px 25px rgba(0, 0, 0, 0.45),
         0 0 18px rgba(184, 108, 255, 0.18)
     ;
+}
+
+.requisito strong {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.requisito ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.requisito li {
+    color: var(--texto);
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.requisito li strong {
+    color: #FFFFFF;
+}
+
+.requisito li::marker {
+    color: #FFFFFF;
 }
 
 .requisito h3 {
@@ -398,37 +555,41 @@ nav a:hover {
     margin: 8px 0;
 }
 
-.requisito ul {
-    margin: 0;
-    padding-left: 20px;
-}
-
-.requisito li {
-    color: var(--texto);
-    margin: 8px 0;
-    line-height: 1.6;
-}
-
 .descarga {
-    padding: 75px 40px;
-
+    position: relative;
+    padding: 60px 40px; /* Reducimos de 90px a 60px */
     text-align: center;
-
-    background: linear-gradient(
-        120deg,
-        var(--fondo-principal),
-        #211234
-    );
-
+    background-color: #0b0714 !important;
+    background-image: none !important;
     border-top: 1px solid var(--borde);
-    border-bottom: 1px solid var(--borde);
+}
+
+.descarga::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    height: 350px;
+    
+    /* Luz equilibrada */
+    background: rgba(184, 108, 255, 0.18);
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.descarga > * {
+    position: relative;
+    z-index: 1;
 }
 
 .descarga h2 {
     font-size: 42px;
-
     margin-top: 0;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 }
 
 .descarga p {
@@ -442,29 +603,59 @@ nav a:hover {
 }
 
 footer {
-    padding: 40px 40px;
-
+    padding: 50px 20px 30px;
     background-color: var(--fondo-secundario);
     border-top: 1px solid var(--borde);
+}
 
+.footer-contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 25px;
     text-align: center;
 }
 
-footer h2 {
-    margin-top: 0;
-    margin-bottom: 14px;
-
+.footer-marca h2 {
+    margin: 0 0 8px 0;
     color: var(--acento);
     letter-spacing: 2px;
-
     text-shadow: 0 0 12px rgba(184, 108, 255, 0.20);
 }
 
-footer p {
+.footer-marca p {
     margin: 0;
     color: var(--texto-secundario);
+    font-size: 15px;
+}
+
+.footer-nav a {
+    color:var(--texto-secundario);
+    text-decoration: none;
     font-size: 14px;
-    line-height: 1.5;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--acento);
+}
+
+.footer-creditos {
+    border-top: 1px solid rgba(57, 40, 77, 0.4);
+    width: 100%;
+    padding-top: 20px;
+}
+
+.footer-creditos p {
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 13px;
+    opacity: 0.7;
 }
 
 /*======================================================== TABLETS Y CELULARES ================================================*/
@@ -540,6 +731,11 @@ footer p {
         width: 100%;
         max-width: 600px;
         margin: 35px auto 0;
+    }
+
+    .caracteristica {
+        width: 100%;
+        max-width: 380px;
     }
 
     .caracteristicas-contenedor,
