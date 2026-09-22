@@ -17,7 +17,10 @@
 
 /*============================================================== GENERAL ==========================================================*/
 html {
-    scroll-behavior: smooth;    
+    scroll-behavior: smooth;
+    /* Candado 1: Cortar excedentes desde la raíz */
+    overflow-x: hidden;
+    width: 100vw;
 }
 
 body {
@@ -31,8 +34,11 @@ body {
     background-size: 40px 40px;
 
     color: var(--texto);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: clip;
+    font-family: 'Inter', sans-serif; 
+    
+    /* Candado 2: Asegurar el cuerpo */
+    overflow-x: hidden;
+    width: 100%;
 }
 
 header {
@@ -860,4 +866,54 @@ footer {
         padding: 13px 26px;
     }
 
+}
+
+@media (max-width: 768px) {
+    /* 1. Apilar el logo y el menú de navegación */
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+    }
+    
+    nav {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 100%;
+        gap: 6px;
+        box-sizing: border-box;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav a {
+        white-space: nowrap;
+        font-size: 12px;
+    }
+
+    /* 2. Botones a lo ancho para que sean fáciles de tocar */
+    .btn, .btn-secundario, .btn-descarga {
+        display: block;
+        width: 90%;
+        margin: 0 auto 15px auto;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /* 3. Reducir un poco los textos grandes */
+    h1 {
+        font-size: 2rem;
+    }
+
+    .hero-texto .btn + .btn {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px; /* Ahora los separamos de arriba hacia abajo */
+    }
 }
