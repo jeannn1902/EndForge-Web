@@ -41,6 +41,10 @@ body {
     width: 100%;
 }
 
+b, strong {
+    font-weight: 700 !important;
+}
+
 header {
     position: sticky;
     top: 0;
@@ -539,7 +543,7 @@ nav a:hover {
 
 .requisito strong {
     color: #FFFFFF;
-    font-weight: bold;
+    font-weight: 700 !important;
 }
 
 .requisito ul {
