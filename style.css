@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-
 * {
     box-sizing: border-box;
 }
@@ -38,8 +36,6 @@ body {
     color: var(--texto);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     
-    /* Estas dos líneas evitan que el celular adelgace el texto base */
-    font-weight: 400 !important;
     -webkit-font-smoothing: antialiased;
     
     /* Candado 2: Asegurar el cuerpo */
