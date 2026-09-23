@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -684,12 +686,6 @@ footer {
 /*========================================================     Max. 900 px     ================================================*/
 
 @media (max-width: 900px) {
-
-    body {
-        font-weight: 400;
-    }
-
-    /*----------------------------------------------------------- HEADER ------------------------------------------------------*/
     header {
         position: static;
         flex-direction: column;
